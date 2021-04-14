@@ -5,11 +5,15 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataBindingComponent } from './Components/data-binding/data-binding.component';
+import { DirectivesComponent } from './Components/directives/directives.component';
+import { ChildComponent } from './Components/child/child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    DirectivesComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,

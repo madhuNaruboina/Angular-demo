@@ -1,0 +1,80 @@
+ 
+<p>Hi {{ userName }}</p>
+<hr>
+<div *ngIf="isShow">
+    <h2 >ngIf Condition</h2> 
+</div>
+<hr>
+<div class="container"> 
+    <div class="row"> 
+       <div class="col-lg-12 text-center" style="padding-top: 20px;">
+          <div class="container" style="padding-left: 0px; padding-right: 0px;"> 
+             <div class="row"> 
+                <div class="col-sm" style="text-align: left;"> 
+                   {{ title }} 
+                </div> 
+                <!-- <div class="col-sm" style="text-align: right;"> 
+                   <button type="button" class="btn btn-primary">Edit</button> 
+                </div>  -->
+             </div> 
+          </div> 
+          <div class="container box" style="margin-top: 10px;"> 
+             <table class="table table-striped"> 
+                <thead> 
+                   <tr> 
+                      <th>Item</th> 
+                      <th>Amount</th> 
+                      <th>Category</th> 
+                      <th>Location</th> 
+                      <th>Spent On</th> 
+                   </tr> 
+                </thead> 
+                <tbody> 
+                   <tr *ngFor="let entry of expenseEntries"> 
+                      <th scope="row">{{ entry.item }}</th> 
+                      <th>{{ entry.amount }}</th> 
+                      <td>{{ entry.category }}</td> 
+                      <td>{{ entry.location }}</td> 
+                      <td>{{ entry.spendOn | date: 'short' }}</td> 
+                   </tr> 
+                </tbody> 
+             </table> 
+          </div> 
+       </div> 
+    </div> 
+ </div>
+ <hr>
+<div>
+    <h2>ngIfElse example!</h2> 
+<div *ngIf="isLogIn; else isLogOut"> 
+   Hello you are logged in 
+</div>
+<ng-template #isLogOut> 
+   You're logged out.. 
+</ng-template>
+</div> 
+
+<hr>
+<h2>ngSwitch directive</h2> 
+<ul [ngSwitch]="logInName"> 
+   <li *ngSwitchCase="'user'"> 
+      <p>User is logged in..</p> 
+   </li> 
+   <li *ngSwitchCase="'admin'"> 
+      <p>admin is logged in</p> 
+   </li> 
+   <li *ngSwitchDefault> 
+      <p>Please choose login name</p> 
+   </li> 
+</ul>
+
+<div>
+<h2 style="color: brown;">Component DIrectives</h2>
+<div class="container"> 
+    <div *ngFor="let user of users" [ngClass]="{ 
+       'highlight':user.userName === 'User1' 
+    }"> 
+       {{ user.userName }} 
+    </div> 
+ </div>
+</div>
